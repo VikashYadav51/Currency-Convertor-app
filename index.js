@@ -15,9 +15,28 @@ for(select of dropdowns){
         if(select.name === 'to' && currCode === 'INR'){
             newOption.selected = 'selected'
         }
+        
         select.append(newOption);
     }
+
+    select.addEventListener('change', (evt) =>{
+      updateFlag(evt.target);
+    })
 }
+
+
+const updateFlag = (element)=>{
+    let currCode = element.value;
+    let countryCode = countryList[currCode];
+    let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`
+    let img1 = element.parentElement.querySelector("img");
+    img1.src = newSrc;
+
+
+
+}
+
+
 
 
 
