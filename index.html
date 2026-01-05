@@ -6,40 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
+    
+    <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" 
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" 
+    />
+
+
 </head>
 <body >
-    <h1> Currency Convertor App </h1>
-
-    <div class="amount">
-        <p>Enter Amount </p>
-        <input type="text" placeholder="100">
-    </div>
     
+    <div class="amount">
+        <h1> Currency Convertor App </h1>
+        <form >
+            <p>Enter Amount </p>
+            <input type="text" placeholder="100">
 
-    <div class="dropdown">
-        <div class="from">
-            <p>From </p>
-            <img src="https://flagsapi.com/BE/flat/64.png">
-            <select name="" id="">
-                <option value="">USD</option>
-                <option value="">INR</option>
-                <option value="">AF</option>
-                <option value="">EUR</option>
-            </select>
-        </div>
+            <div class="dropdown">
+                <div class="from">
+                    <p>From </p>
+                    <img src="https://flagsapi.com/US/flat/64.png">
+                    <select name="" id="currencyFrom">
+                        <option value="USD">USD</option>
+                        <option value="INR">INR</option>
+                        <option value="AF">AF</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                </div>
+
+                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+
+                <div class="to">
+                    <p> To </p>
+                    <img src="https://flagsapi.com/IN/flat/64.png">
+                    <select name="" id="currencyTo">
+                        <option value="USD">USD</option>
+                        <option value="INR"  selected>INR</option>  
+                        <option value="AF">AF</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                </div>
 
 
-        <div class="to">
-            <p> To </p>
-            <img src="https://flagsapi.com/BE/flat/64.png">
-            <select name="" id="">
-                <option value="">INR</option>
-                <option value="">USD</option>
-                <option value="">AF</option>
-                <option value="">EUR</option>
-            </select>
-        </div>
+            </div>
+        </form>
 
+
+        <div class="msg"> 1INR = 90Rs</div>
+        <button class="btn">Convert it !</button>
 
     </div>
 
