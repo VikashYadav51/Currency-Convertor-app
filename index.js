@@ -1,6 +1,14 @@
-let URL = `https://api.frankfurter.dev/v1/latest?base=USD&symbols=inr`
+let BASE_URL = `https://api.frankfurter.dev/v1/latest?base=`
 
 let dropdowns = document.querySelector('.dropdown ').querySelectorAll('select');
+
+let btn = document.querySelector(".btn")
+
+const fromCurr = document.querySelector(".from select");
+
+const toCurr = document.querySelector(".to select");
+
+const messageUpdation = document.querySelector(".msg");
 
 
 for(select of dropdowns){
@@ -31,13 +39,31 @@ const updateFlag = (element)=>{
     let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`
     let img1 = element.parentElement.querySelector("img");
     img1.src = newSrc;
-
-
-
 }
 
+btn.addEventListener("click", async(evt) =>{
+    evt.preventDefault();
+    let amount = document.querySelector(".amount input");
+    let amountVal = amount.value;
 
+    if(amountVal === "" || amountVal < 1){
+        amountVal = 0;
+        amount.value = 0;
+    }
 
+    console.log(fromCurr, toCurr);
+    const URL = `${BASE_URL}${fromCurr.value.toLowerCase()}&symbols=${toCurr.value.toLowerCase()}`
 
+    let response =  await fetch(URL);
+    let data = response.json();
 
+    // console.log(data.base);
 
+    data.then((res) =>{
+         console.log(res.base[toCurr.value]);
+        let exchangeRate = res.rates[toCurr.value];
+        let totalExRate = (exchangeRate * amountVal).toFixed(2);
+        messageUpdation.innerText = `${amountVal} ${fromCurr.value} = ${totalExRate} ${toCurr.value}`;
+    }); 
+
+});
