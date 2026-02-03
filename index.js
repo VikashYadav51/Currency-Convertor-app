@@ -51,7 +51,7 @@ btn.addEventListener("click", async(evt) =>{
         amount.value = 0;
     }
 
-    console.log(fromCurr, toCurr);
+    // console.log(fromCurr, toCurr);
     const URL = `${BASE_URL}${fromCurr.value.toLowerCase()}&symbols=${toCurr.value.toLowerCase()}`
 
     let response =  await fetch(URL);
@@ -60,10 +60,14 @@ btn.addEventListener("click", async(evt) =>{
     // console.log(data.base);
 
     data.then((res) =>{
-         console.log(res.base[toCurr.value]);
+        console.log(res.base[toCurr.value]);
         let exchangeRate = res.rates[toCurr.value];
         let totalExRate = (exchangeRate * amountVal).toFixed(2);
-        messageUpdation.innerText = `${amountVal} ${fromCurr.value} = ${totalExRate} ${toCurr.value}`;
+        messageUpdation.innerHTML = `${amountVal} ${fromCurr.value} = ${totalExRate} ${toCurr.value}`;
+
     }); 
 
 });
+
+
+ 

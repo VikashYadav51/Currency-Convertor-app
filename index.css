@@ -15,7 +15,7 @@ body{
 .amount{
     background-color: #fff;
     padding: 2rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
     min-height: 45vh;
     width: 40vh;
 }
